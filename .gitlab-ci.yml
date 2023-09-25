@@ -1,0 +1,18 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+deploy-infra:
+  stage: deploy
+  image: memetaverse/ci-node:latest
+  only:
+    - master
+    - staging
+    - release
+  script:
+    - mtv-lock-sync
+    - cd .ci && npm install && cd node_modules/mtv-ops-lib && DOCKER_BUILDKIT=1 mtv-up atlas-server
+    - cd ..
+    - mtv-sync-release
+    - mtv-announce-docker-build
