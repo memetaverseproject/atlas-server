@@ -13,15 +13,15 @@ export function createImageComponent(components: {
   function getColor(tile: Tile) {
     switch (tile.type) {
       case TileType.DISTRICT:
-        return '#5054D4'
+        return '#8647d3'
       case TileType.PLAZA:
-        return '#70AC76'
+        return '#7145b7'
       case TileType.ROAD:
-        return '#716C7A'
+        return '#A9A9A9'
       case TileType.OWNED:
-        return '#3D3A46'
+        return '#ff00ee'
       case TileType.UNOWNED:
-        return '#09080A'
+        return '#FFC300'
     }
   }
 
@@ -47,13 +47,13 @@ export function createImageComponent(components: {
         showOnRent && tile.rentalListing && !isRentalExpired(tile.rentalListing)
       const result = tile
         ? {
-            color: isOnSale || isListedForRent ? '#1FBCFF' : getColor(tile),
+            color: isOnSale || isListedForRent ? '#c849e5' : getColor(tile),
             top: tile.top,
             left: tile.left,
             topLeft: tile.topLeft,
           }
         : {
-            color: (x + y) % 2 === 0 ? '#110e13' : '#0d0b0e',
+            color: (x + y) % 2 === 0 ? '#28262a' : '#3d3b3e',
           }
       return result
     }
@@ -66,11 +66,11 @@ export function createImageComponent(components: {
       )
       const strokeLayer: Layer = (x, y) =>
         selection.has(coordsToId(x, y))
-          ? { color: '#ff0044', scale: 1.4 }
+          ? { color: '#9149e7', scale: 1.4 }
           : null
       const fillLayer: Layer = (x, y) =>
         selection.has(coordsToId(x, y))
-          ? { color: '#ff9990', scale: 1.2 }
+          ? { color: '#9e60ea', scale: 1.2 }
           : null
       layers.push(strokeLayer)
       layers.push(fillLayer)

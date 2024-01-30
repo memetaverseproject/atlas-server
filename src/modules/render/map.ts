@@ -15,7 +15,7 @@ export function renderMap(args: {
 }) {
   const { ctx, width, height, size, pan, nw, se, center, layers } = args
 
-  ctx.fillStyle = '#18141a'
+  ctx.fillStyle = '#373737'
   ctx.fillRect(0, 0, width, height)
 
   const halfWidth = width / 2
